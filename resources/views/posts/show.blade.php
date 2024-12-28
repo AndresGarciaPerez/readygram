@@ -15,8 +15,6 @@
                     <livewire:like-post :post="$post" />
 
                     @endauth
-
-
                 
             </div>
             <div>
