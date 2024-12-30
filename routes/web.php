@@ -12,7 +12,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',HomeController::class)->name('home')->middleware('auth'); 
+Route::get('/log',HomeController::class)->name('home')->middleware('auth'); 
   
 //------------- NOTA: LEER CONVENCIONES DE URL LARAVEL ------------------//
 
@@ -25,7 +25,7 @@ Route::post('/editar-perfil',[PerfilController::class, 'store'])->name('perfil.s
 Route::get('/register', [RegisterController::class, 'index'])->name('register'); //MOSTRAR vista de register 
 Route::post('/register', [RegisterController::class, 'store']); //accion: Crear un nuevo usuario (almacenar)
 
-Route::get('/login', [LoginController::class, 'index'])->name('login'); //MOSTRAR vista de login
+Route::get('/', [LoginController::class, 'index'])->name('login'); //MOSTRAR vista de login
 Route::post('/login', [LoginController::class, 'store'])->name('login'); //accion: iniciar sesion 
 
 //es mas seguro con post que con get
