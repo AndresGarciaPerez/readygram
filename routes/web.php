@@ -22,6 +22,12 @@ Route::post('/', [LoginController::class, 'store'])->name('login'); //accion: in
 Route::get('/register', [RegisterController::class, 'index'])->name('register'); //MOSTRAR vista de register 
 Route::post('/register', [RegisterController::class, 'store']); //accion: Crear un nuevo usuario (almacenar)
 
+//RUTA DE TEST
+Route::get('/test', function () {
+    return 'Laravel está funcionando correctamente';
+});
+
+
 //Ruta HOME
 Route::get('/home',HomeController::class)->name('home')->middleware('auth'); 
 
@@ -53,6 +59,8 @@ Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('
 //SIGUIENDO A USUARIOS 
 Route::post('{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 Route::delete('{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
+
+
 
 
 
