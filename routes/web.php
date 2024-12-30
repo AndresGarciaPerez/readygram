@@ -12,21 +12,24 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/log',HomeController::class)->name('home')->middleware('auth'); 
-  
 //------------- NOTA: LEER CONVENCIONES DE URL LARAVEL ------------------//
 
-//RUTAS PARA EL PERFIL
-Route::get('/editar-perfil',[PerfilController::class, 'index'])->name('perfil.index')->middleware('auth');
-Route::post('/editar-perfil',[PerfilController::class, 'store'])->name('perfil.store');
+//RUTAS AUTH
 
-
+Route::get('/', [LoginController::class, 'index'])->name('login'); //MOSTRAR vista de login
+Route::post('/', [LoginController::class, 'store'])->name('login'); //accion: iniciar sesion 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register'); //MOSTRAR vista de register 
 Route::post('/register', [RegisterController::class, 'store']); //accion: Crear un nuevo usuario (almacenar)
 
-Route::get('/', [LoginController::class, 'index'])->name('login'); //MOSTRAR vista de login
-Route::post('/login', [LoginController::class, 'store'])->name('login'); //accion: iniciar sesion 
+//Ruta HOME
+Route::get('/home',HomeController::class)->name('home')->middleware('auth'); 
+
+
+//RUTAS PARA EDITAR EL PERFIL
+Route::get('/editar-perfil',[PerfilController::class, 'index'])->name('perfil.index')->middleware('auth');
+Route::post('/editar-perfil',[PerfilController::class, 'store'])->name('perfil.store');
+
 
 //es mas seguro con post que con get
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); //accion: cerrar sesion
