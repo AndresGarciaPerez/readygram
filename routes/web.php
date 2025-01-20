@@ -7,6 +7,7 @@ use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\NotuserController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -31,6 +32,9 @@ Route::get('/test', function () {
 //Ruta HOME
 Route::get('/home',HomeController::class)->name('home')->middleware('auth'); 
 
+//Usuario no encontrado
+Route::get('/not-user',[NotuserController::class, 'index'])->name('not-user.index');
+
 
 //RUTAS PARA EDITAR EL PERFIL
 Route::get('/editar-perfil',[PerfilController::class, 'index'])->name('perfil.index')->middleware('auth');
@@ -40,13 +44,18 @@ Route::post('/editar-perfil',[PerfilController::class, 'store'])->name('perfil.s
 //es mas seguro con post que con get
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); //accion: cerrar sesion
 
-Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');//mostrar vista despues de haber iniciado sesion (muestra una lista de elementos)
+Route::get('/{user:username?}', [PostController::class, 'index'])->name('posts.index');//mostrar vista despues de haber iniciado sesion (muestra una lista de elementos)
 
 Route::get('/post/create',[PostController::class, 'create'])->name('posts.create')->middleware('auth'); //muestra la vista para crear publicacion 
 Route::post('/posts',[PostController::class, 'store'])->name('posts.store'); //valida y crea la publicacion en la BD
-Route::get('/{user:username}/posts/{post}',[PostController::class,'show'])->name('posts.show');//mostrar detalle de cada foto (show es para mostrar un elemento en especifico)
-Route::post ('/{user:username}/posts/{post}',[ComentarioController::class,'store'])->name('comentarios.store');//Accion: guardar comentario
 
+Route::get('/{user:username}/posts/{post}',[PostController::class,'show'])->name('posts.show');//mostrar detalle de cada foto (show es para mostrar un elemento en especifico)
+
+// COMENTARIOS
+Route::post ('/{user:username}/posts/{post}',[ComentarioController::class,'store'])->name('comentarios.store');//Accion: guardar comentario
+Route::delete('/posts/{comentario}',[ComentarioController::class,'destroy'])->name('comentario.destroy');
+
+//Eliminar un post
 Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
 
 Route::post('/imagenes',[ImagenController::class, 'store'])->name('imagenes.store'); //accion: guardar imagen

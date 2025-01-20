@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ComentarioController extends Controller
 {
@@ -29,5 +30,12 @@ class ComentarioController extends Controller
         return back()->with('mensaje', 'Comentario realizado correctamente');
 
 
+    }
+
+    public function destroy(Comentario $comentario)
+    {
+        Gate::authorize('delete', $comentario);
+        $comentario->delete();
+        return back(); 
     }
 }

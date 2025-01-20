@@ -14,5 +14,6 @@ class HomeController extends Controller
         $posts = Post::whereIn('user_id', $ids)->latest()->paginate(10);
         return view('home', ['posts' => $posts]);
     }
+    
 }
 

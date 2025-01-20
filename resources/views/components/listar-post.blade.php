@@ -1,4 +1,5 @@
 <div>
+
     @if ($posts->count())
     <div class="grid justify-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         @foreach ( $posts as $post )

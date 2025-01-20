@@ -14,7 +14,7 @@ class LoginController extends Controller
     {
         if(Auth::check()){
             //Redireccionar usuarios con sesión activa.
-            return redirect()->route('post.index');
+            return redirect()->route('posts.index');
         }
     
         return view('auth.login');

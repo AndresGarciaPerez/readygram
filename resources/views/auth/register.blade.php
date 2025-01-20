@@ -5,11 +5,12 @@
 @endsection
 
 @section('contenido')
-    <div class="md:flex md:justify-center md:gap-6 md:items-center">
+    <div class="md:flex md:justify-center md:gap-20 md:items-center">
 
         <div class="md:w-6/12 mb-10 md:mb-0">
-            <img src="https://res.cloudinary.com/dzmdypny0/image/upload/v1733847112/registrar_mvjbpm.jpg" 
-            alt="Registro de usuario">
+            <img src="https://res.cloudinary.com/dzmdypny0/image/upload/v1737391337/ready_mb2fa9.jpg" 
+            alt="Registro de usuario"
+            class="rounded-lg">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
             {{-- Me valida mi form y request para evitar ataques, tambien me devueve un token --}}

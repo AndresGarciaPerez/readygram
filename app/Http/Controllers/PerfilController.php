@@ -59,4 +59,68 @@ class PerfilController extends Controller
 
     }
 }
+
+
+
+
+// namespace App\Http\Controllers;
+
+// use App\Models\User;
+// use Illuminate\Support\Str;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Auth;
+// use Intervention\Image\ImageManager;
+// use Intervention\Image\Drivers\Gd\Driver;
+// use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
+// class PerfilController extends Controller
+// {
+//     public function index()
+//     {
+//         return view('perfil.index');
+//     }
+ 
+
+//     public function store(Request $request)
+//     {
+//         $request->request->add(['username' => Str::slug($request->username)]); 
+
+//         $validate = $request->validate([
+//             'username' => ['required','unique:users,username,'.Auth::user()->id,'alpha_dash','min:3','max:30','not_in:editar-perfil']
+//         ]);
+    
+//         $nombreImagen = null;
+    
+//         if ($request->hasFile('imagen')) {
+//             $imagen = $request->file('imagen');
+//             $nombreImagen = Str::uuid() . "." . $imagen->extension();
+//             $response = Cloudinary::upload($imagen->getRealPath(), [
+//                 'folder' => 'perfiles',
+//                 'transformation' => [
+//                     'width' => 1000,
+//                     'height' => 1000,
+//                     'crop' => 'scale'
+//                     ]
+//                 ]);
+                
+//                 // Obtén la URL pública de la imagen
+//                 $nombreImagen = $response->getSecurePath();
+//             }
+            
+//             dd($nombreImagen);
+//         // Actualizar usuario
+//         $usuario = User::find(Auth::user()->id);
+    
+//         $usuario->username = $request->username;
+//         $usuario->imagen = $nombreImagen ?? Auth::user()->imagen ?? null;
+//         $usuario->save();
+    
+//         // Redireccionamos 
+//         return redirect()->route('posts.index', $usuario->username);
+//     }
+    
+// }
+
+
+
  
