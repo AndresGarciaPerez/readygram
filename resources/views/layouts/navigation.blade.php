@@ -12,6 +12,13 @@
                     <livewire:buscar-usuarios />
                 </div>
 
+                @guest
+                    <nav class="hidden sm:flex gap-2" > 
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
+                    </nav>
+                @endguest
+
                 @auth
                     <!-- Navigation Links -->
                     <nav class="hidden sm:flex gap-5 items-center" > 
@@ -64,10 +71,10 @@
         @endauth
 
         @guest
-        <nav class="flex gap-2" > 
-            <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
-            <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
-        </nav>
-    @endguest
+            <nav class="flex flex-col gap-2 items-end" > 
+                <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
+                <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
+            </nav>
+        @endguest
     </div>
 </nav>
