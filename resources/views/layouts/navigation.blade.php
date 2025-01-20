@@ -21,7 +21,7 @@
 
                 @auth
                     <!-- Navigation Links -->
-                    <nav class="hidden md:flex gap-5 items-center" > 
+                    <nav class="hidden md:flex gap-8 items-center" > 
                         <a href="{{route('posts.create')}}" 
                         class="flex items-center gap-2 bg-blue-100 border border-blue-300 px-2 py-1 text-blue-800 rounded-lg text-sm uppercase font-bold cursor-pointer">
                         <h1 class="">Crear</h1>
@@ -71,7 +71,7 @@
         @endauth
 
         @guest
-            <nav class="flex flex-col gap-2 items-end" > 
+            <nav class="flex flex-col gap-8 items-end" > 
                 <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
                 <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
             </nav>
