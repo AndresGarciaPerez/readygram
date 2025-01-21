@@ -15,7 +15,7 @@
                     @endauth
             </div>
             <div>
-                <a href="{{route('posts.index', $post->user->username)}}" class="font-bold">{{ $post->user->username}}: </a> <span class="font-normal">{{$post->descripcion}}</span>
+                <a href="{{route('posts.index', $post->user->username)}}" class="font-bold capitalize">{{ $post->user->username}}: </a> <span class="font-normal">{{$post->descripcion}}</span>
                 <p class="text-sm text-gray-500">{{$post->created_at->diffForHumans()}}</p>
             </div> 
             @auth

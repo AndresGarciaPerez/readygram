@@ -7,7 +7,7 @@
 
 <div class="flex justify-center px-10">
     <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
-        <div class="w-8/12 lg:w-6/12 px-5">
+        <div class="w-6/12 md:w-8/12 px-5 md:px-0">
             <img class="h-52" 
                 src="{{ 
                 $user->imagen ? asset('perfiles').'/'.$user->imagen 
