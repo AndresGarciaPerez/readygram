@@ -7,7 +7,7 @@
 
 <div class="flex justify-center px-10">
     <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
-        <div class="w-6/12 md:w-8/12 px-5 md:px-0">
+        <div class="w-6/12 md:w-8/12 px-5 items-end flex flex-col justify-end">
             <img class="h-52" 
                 src="{{ 
                 $user->imagen ? asset('perfiles').'/'.$user->imagen 
@@ -19,8 +19,9 @@
                 </a>  
                 @endif
                 @endauth
+            
         </div>
-        <div class="md:w-8/12 lg:w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10 md:py-10">
+        <div class="md:w-8/12 w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10 md:py-10">
             <p class="text-gray-700 text-2xl mb-5">Actividad</p>
             {{-- el user lo toma del url, asi es como funciona y muestra la informacion del usuario que esta en la url --}}
             <p class="text-gray-800 text-sm mb-3 font-bold">{{$user->followers->count()}}<span class="font-normal"> @choice('Seguidor|seguidores',$user->followers->count()) </span></p> 
